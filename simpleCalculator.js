@@ -1,6 +1,5 @@
-const { error } = require('console');
-const readline = require('readline');
-const r1 = readline.createInterface({
+import { createInterface } from 'readline';
+const r1 = createInterface({
     input: process.stdin,
     output: process.stdout
 });
