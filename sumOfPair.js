@@ -6,12 +6,13 @@
 
 function sumOfPairs(arr){
     const newSet= new Set();
-    const pairs=[];
+    let pairs=[],index=0;
     for(let num of arr){
         const sum=100-num;
         if(newSet.has(sum)){
-            if(!pairs.includes([sum,num])){
-                pairs.push([sum,num]);
+            if(pairs!==([sum,num])){
+                pairs[index]=[sum,num];
+                index++;
             }
         }
         newSet.add(num);

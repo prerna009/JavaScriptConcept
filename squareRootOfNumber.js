@@ -1,7 +1,8 @@
 //WAP for getting a square root of a given number.
 
 function squareRoot(num){
-    let sqrt=num**0.5;
-    console.log(`Square root of ${num} number : `+sqrt.toFixed(2));
+    let sqrt=num**(1/2);
+    return sqrt;
 }
-squareRoot(8.7);
+const number=9;
+console.log(`Square root of ${number} number : `,squareRoot(number));
