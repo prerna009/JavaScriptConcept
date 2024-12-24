@@ -5,17 +5,14 @@
 //Any better solution for the above problem?
 
 function sumOfPairs(arr){
-    const newSet= new Set();
-    let pairs=[],index=0;
-    for(let num of arr){
-        const sum=100-num;
-        if(newSet.has(sum)){
-            if(pairs!==([sum,num])){
-                pairs[index]=[sum,num];
+    let pairs=[],index=0,num=60;
+    for(let i=0;i<arr.length;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i]+arr[j]===num){
+                pairs[index]=[arr[i],arr[j]];
                 index++;
             }
         }
-        newSet.add(num);
     }
     return pairs;
 }
