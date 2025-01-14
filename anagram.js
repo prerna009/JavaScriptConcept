@@ -2,26 +2,22 @@ function isAnagram(str1, str2) {
     if (str1.length !== str2.length) {
         return false;
     }
-
-    let c1 = {}, c2 = {};
-
-    for (let i = 0; i < str1.length; i++) {
-        c1[str1[i]] = (c1[str1[i]] || 0) + 1;
+    let counter={};
+    for (let char of str1) {
+        if(counter[char]>0) counter[char]++;
+        else counter[char]=1;
     }
-
-    for (let i = 0; i < str2.length; i++) {
-        c2[str2[i]] = (c2[str2[i]] || 0) + 1;
-    }
-
-    for (let char in c1) {
-        if (c1[char] !== c2[char]) {
+    for (let char2 of str2) {
+        if(counter[char2]>0) counter[char2]--;
+        else{
+            console.log('Not a anagram.');
             return false;
         }
     }
-
+    console.log('Is a anagram.');
     return true;
 }
 
-let str1 = 'listen';
-let str2 = 'slixsent';
+let str1 = 'lishhten';
+let str2 = 'slikjent';
 console.log(isAnagram(str1,str2));
