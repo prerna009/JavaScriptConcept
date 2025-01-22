@@ -1,5 +1,4 @@
 function countChar(str){
-    debugger
     let temp=str.toLowerCase();
     let count=1,max=0,maxChar="";
     for(let i=0;i<temp.length;i++){
