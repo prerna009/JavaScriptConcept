@@ -4,9 +4,9 @@
 function IsAnagram(arr){
     let obj={};
     for(let word of arr){
-        let freq=[];
+        let freq = new Array(26).fill(0);
         for(let char of word){
-            freq[char.charCodeAt()]++;
+            freq[char.charCodeAt()-'a'.charCodeAt()]++;
         }
         obj[freq]=obj[freq] || [];
         obj[freq].push(word);
@@ -14,5 +14,5 @@ function IsAnagram(arr){
     return Object.values(obj);
 }
 
-const str = ["eat", "tea", "tan", "ate","listen","slient", "nat", "bat"];
+const str = ["ddddddddddg","dgggggggggg"];
 console.log(IsAnagram(str));
