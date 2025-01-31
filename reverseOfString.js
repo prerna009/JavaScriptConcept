@@ -1,9 +1,9 @@
 //Find the reverse of the string.
 
 function reverseOfString(str){
-    let temp='';
+    let temp=[];
     for(let i=str.length-1;i>=0;i--){
-        temp+=str[i];
+        temp.push(str[i]);
     }
     return temp;
 }

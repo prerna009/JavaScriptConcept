@@ -1,7 +1,6 @@
 //first non repeating character of string
 
 function nonRepeatCharacter(str){
-    debugger
     let freq={};
     for(let i=0;i<str.length;i++){
         if(freq[str[i]]){
