@@ -44,3 +44,36 @@ weakMap.set(obj,'prerna');
 console.log(weakMap);
 weakMap.set({},'prerna');
 console.log(weakMap.has(obj));
+
+//Map with async
+const arr = [1,2,3];
+const asyncRes = await Promise.all(arr.map(async(i) => {
+    return i+1;
+}));
+console.log(asyncRes); // [2,3,4]
+
+//Map with async example -2
+
+const numbers = [1,2,3];
+const asyncFunction  = async (num) => { 
+    return num*2;
+};
+const processNumbers = async () => {
+    const result = await Promise.all(numbers.map(asyncFunction));
+    console.log(result);
+};
+processNumbers();
+
+//Map with using for...of
+const numbers2 = [1,2,3];
+const asyncFunction2 = async (num) => {
+    return new Promise((resolve) => setTimeout(() => resolve(num*2),100));
+};
+const processNumbers2 = async () => {
+    const results = [];
+    for(const num of numbers2){
+        results.push(await asyncFunction2(num));
+    }
+    console.log(results);
+};
+processNumbers2();
