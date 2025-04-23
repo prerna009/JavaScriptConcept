@@ -2,6 +2,9 @@ function isAnagram(str1, str2) {
     if (str1.length !== str2.length) {
         return false;
     }
+
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
     let counter={};
     for (let char of str1) {
         if(counter[char]>0) counter[char]++;
