@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Event Capturing-->
+    <div id="outerC" style="padding:20px; background-color: lightblue;">
+        Outer
+        <div id="innerC" style="padding: 20px; background-color: lightgreen;">Inner</div>
+    </div>
+
+    <!--Event Bubbling (Default Behaviour)-->
+    <div id="outerB" style="padding: 20px; background: lightcoral;">
+        Outer
+        <div id="innerB" style="padding: 20px; background: lightyellow;">
+            Inner
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("outerC").addEventListener("click", () => {
+            console.log('Outer Div - Capturing');
+        }, true); // true enable capturing phase
+
+        document.getElementById("innerC").addEventListener("click", () => {
+            console.log('Inner Div - Capturing');
+        }, true);
+
+        document.getElementById("outerB").addEventListener("click", () => {
+            console.log("Outer Div - Bubbling");
+        });
+
+        document.getElementById("innerB").addEventListener("click", () => {
+            console.log("Inner Div - Bubbling");
+        });
+
+        document.getElementById('innerB').addEventListener("click", (event) => {
+            event.stopPropagation(); // Stops event here
+        });
+
+    </script>
+
+    
+
+</body>
+
+</html>
