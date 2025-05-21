@@ -80,19 +80,25 @@ if (isPrime(number)) console.log(`${number} is a prime number.`);
 else console.log(`${number} is not a prime number.`);
 
 //8. Write a JavaScript program to find the largest element in a nested array. 
-// function findLargestElement(nestedArr) {
-//     let largestNum = nestedArr[0][0];
-//     for (let arr of nestedArr) {
-//         for (let num of arr) {
-//             if (num > largestNum) {
-//                 largestNum = num;
-//             }
-//         }
-//     }
-//     return largestNum;
-// }
-// const nestedArr = [23, 67, 433, 2, [45, 899, 90, 8]];
-// console.log(`Largest number in the nested array is`, largestNumberInNestedArray(nestedArr));
+function findLargestElement(nestedArr) {
+    let largestNum = nestedArr[0];
+    for (let arr of nestedArr) {
+        if(Array.isArray(arr)){
+            for (let num of arr) {
+                if (num > largestNum) {
+                    largestNum = num;
+                }
+            }
+        } else {
+            if (arr > largestNum) {
+                largestNum = arr;
+            }
+        }
+    }
+    return largestNum;
+}
+const nestedArr = [-23, -67, -433, -2, [-45, -899, -90, -8]];
+console.log(`Largest number in the nested array is`, findLargestElement(nestedArr));
 
 //9. Write a JavaScript function that returns the Fibonacci sequence up to a given number of terms. 
 function fibonacci(num) {
