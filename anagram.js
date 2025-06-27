@@ -1,26 +1,20 @@
 function isAnagram(str1, str2) {
-    if (str1.length !== str2.length) {
-        return false;
-    }
-
+    if (str1.length !== str2.length) return false;
     str1 = str1.toLowerCase();
     str2 = str2.toLowerCase();
-    let counter={};
-    for (let char of str1) {
-        if(counter[char]>0) counter[char]++;
-        else counter[char]=1;
+
+    let freq = [];
+    for(let char of str1) {
+        freq[char] = freq[char] ? freq[char]++ : 1;
     }
-    for (let char2 of str2) {
-        if(counter[char2]>0) counter[char2]--;
-        else{
-            console.log('Not a anagram.');
-            return false;
-        }
+
+    for(let char of str2) {
+        if (freq[char]) freq[char] = freq[char]--;
+        else return false;
     }
-    console.log('Is a anagram.');
     return true;
 }
 
-let str1 = 'lishhten';
-let str2 = 'slikjent';
-console.log(isAnagram(str1,str2));
+const s1 = 'listen', s2 = 'silent';
+if(isAnagram(s1,s2)) console.log('Is a anagram');
+else console.log('Is not a anagram');

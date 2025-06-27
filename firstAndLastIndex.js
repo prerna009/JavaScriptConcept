@@ -1,7 +1,7 @@
 function firstAndLastOccurrenceArray(arr, digit) {
     let firstIndex = -1, lastIndex = -1;
     let left = 0, right = arr.length-1;
-    while(left<=right){
+    while(arr.length){
         if(arr[left]===digit && firstIndex===-1){
             firstIndex=left;
         }
